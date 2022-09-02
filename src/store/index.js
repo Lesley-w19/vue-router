@@ -7,7 +7,7 @@ const store = new Vuex.Store({
   state: {
     user: null,
     token: null,
-    loggedin:null
+    // loggedin: null,
   },
   //manipulating/changing the state
   mutations: {
@@ -17,21 +17,21 @@ const store = new Vuex.Store({
     setToken(state, token) {
       state.token = token;
     },
-    setloggedin(state){
-      state.loggedin = true;
-    }
+    // setloggedin(state){
+    //   state.loggedin = true;
+    // }
   },
   //commiting the mutation
   actions: {
-    setUser({commit}, user) {
-      commit("setUser",user);
+    setUser({ commit }, user) {
+      commit("setUser", user);
     },
-    setToken({commit}, token) {
-      commit("setToken",token);
+    setToken({ commit }, token) {
+      commit("setToken", token);
     },
-    login({commit}) {
-      commit("setloggedin");
-    },
+    // login({ commit }) {
+    //   commit("setloggedin");
+    // },
   },
 
   //compute all derived state -when there is a change in state
