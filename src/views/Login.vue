@@ -18,10 +18,8 @@
 </template>
 <script>
 import axios from "axios";
-// import console from "console";
 import { mapActions } from "vuex";
 
-// this.$store.getters
 export default {
   name: "LoginSection",
   data: () => {
@@ -37,28 +35,21 @@ export default {
     async login() {
       // console.log(this.username, this.password);
 
-      //  const response = await axios.post("http://localhost:4000/users/authenticate", this.loginForm).then(() => ).catch((err) => {console.log(err)});
+      await axios
+        .post("http://localhost:4000/users/authenticate", this.loginForm)
+        .then((response) => {
+          const { username, token } = response.data;
+          // console.log(username, token);
 
-      try {
-        const response = await axios.post(
-          "http://localhost:4000/users/authenticate",
-          this.loginForm
-        );
-        const { username, token } = await response.data;
-        // console.log(username, token);
-
-        this.setUser(username);
-        this.setToken(token);
-
-        this.$router.push({ name: "home", params:{id:89} });
-        // this.$router.push(`/home/${username}`);
-        // this.$router.push(`/home/`, );
-      } catch (error) {
-        // console.error(error)
-        console.log("iko njee");
-      }
+          this.setUser(username);
+          this.setToken(token);
+          this.$router.push({ name: "home" });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     },
   },
-  computed: {},
+ 
 };
 </script>
