@@ -12,7 +12,7 @@ Vue.use(Vuex);
 new Vue({
   router,
 
-  store: store,
+  store,
 
   render: (h) => h(App),
 }).$mount("#app");
