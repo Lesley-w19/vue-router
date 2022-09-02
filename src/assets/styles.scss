@@ -1,0 +1,36 @@
+$color-white: #fff;
+$color-orange: orange;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+@mixin wrapper() {
+  width: 100%;
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px 30px;
+}
+@mixin button {
+  padding: 10px 40px;
+  background-color: $color-orange;
+  color: $color-white;
+  border: none;
+  border-radius: 5px;
+  margin: 5px auto;
+  cursor: pointer;
+}
+.wrapper {
+  @include wrapper();
+}
+button {
+  @include button();
+}
+input{
+    padding: 10px 20px;
+    margin: 10px auto;
+}
